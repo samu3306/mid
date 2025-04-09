@@ -1,9 +1,7 @@
 name: Billboard Scraper
 
 on:
-  schedule:
-    - cron: "0 0 * * *"  # 每天台灣上午 8 點
-  workflow_dispatch:
+  workflow_dispatch:  # 可以手動執行此 action
 
 jobs:
   scrape:
