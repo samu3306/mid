@@ -23,9 +23,6 @@ jobs:
 
     - name: Run main
       run: python main.py
-
-    - name: Upload result as artifact
-      uses: actions/upload-artifact@v3
       with:
         name: billboard-hot-100
         path: billboard_hot_100.csv
