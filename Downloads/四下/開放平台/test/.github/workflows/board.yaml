@@ -1,0 +1,31 @@
+name: Billboard Scraper
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # 每天台灣上午 8 點
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run scraper
+      run: python billboard_scraper.py
+
+    - name: Upload result as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: billboard-hot-100
+        path: billboard_hot_100.csv
