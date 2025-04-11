@@ -26,10 +26,10 @@ jobs:
         run: pip3 install pandas
       - name: Run crawler.py  # 前面都是在安裝 Python 環境，這裡才是真的去執行 crawler.py 的程式
         run: python .github/workflows/main.py
-      - name: Commit Data Back To GitHub Repo
+      - name: Commit & Push
         run: |
-          git config --global user.name "samu3306"
-          git config --global user.email "coeall21809@gmail.com"
-          git add . && git commit -m "daily crawl" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/samu3306/mid.git HEAD:main
-
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add . && git commit -m "daily crawl" || echo "No changes"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/samu3306/mid.git
+          git push origin HEAD:main
