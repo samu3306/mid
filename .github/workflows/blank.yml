@@ -29,6 +29,6 @@ jobs:
       - name: Commit Data Back To GitHub Repo  # 將爬到的數據 commit 回 GitHub repo
         run: |
           git config --global user.name "samu3306"
-          git config --global user.email "coeal21809@gmail.com"
+          git config --global user.email "coeall21809@gmail.com"
           git add . && git commit -m "daily crawl"
           git push origin main
