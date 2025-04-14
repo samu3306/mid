@@ -2,8 +2,6 @@ name: Crawler Demo Action
 run-name: Crawler Demo Action
 
 on:
-  schedule:
-    - cron: "55 12 * * *"  # UTC 每天下午 12:55
   workflow_dispatch:
 
 permissions:
